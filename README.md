@@ -1,4 +1,4 @@
-# gunicorn-nginx
+# waitress-nginx
 **Docker** image with **waitress** and **nginx** for web applications
 written in the latest stable version of **Python** (currently 3.7).
 
