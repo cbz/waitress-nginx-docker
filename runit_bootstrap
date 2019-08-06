@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Save ENV so it can be reloaded post init - runit will clear environment
+env > /etc/env
+export LD_PRELOAD=/lib/runit-docker.so
+exec /sbin/runsvdir /etc/sv

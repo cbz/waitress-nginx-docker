@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Reload Environment
+source /etc/env
+
+# Set default value for app directory if its not provided
+: ${APPDIR:=/app}
+
+# Set default value for app if it is not provided
+: ${MODULE_APP:=main:app}
+
+# Set total number of workers - as num cpus - 1
+: ${CONCURRENCY:=$(( `nproc` - 1))} 
+
+# Change to application directory
+cd ${APPDIR}
+exec /usr/local/bin/waitress-serve --threads=${CONCURRENCY} --unix-socket-perms=666 --unix-socket=/run/waitress.sock ${MODULE_APP}
