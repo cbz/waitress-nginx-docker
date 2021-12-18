@@ -1,9 +1,9 @@
-FROM python:3.7-alpine3.9
+FROM python:3.10-alpine
 
 # Standard set up Nginx Alpine
 # From https://raw.githubusercontent.com/nginxinc/docker-nginx/2364fdc54af554d28ef95b7be381677d10987986/mainline/alpine/Dockerfile
 
-ENV NGINX_VERSION 1.15.8
+ENV NGINX_VERSION 1.21.4
 
 RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& CONFIG="\
